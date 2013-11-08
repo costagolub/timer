@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Timer page</title>
+
+    <!--  main style  -->
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+    <!--- timer -->
+    <div id="timer">
+       <!-- header of timer -->
+        <div class="timer-header">
+            <div>Set your timer</div>
+            <span class="close"><img src="img/close.png" alt="" /></span>
+            <span class="hide"><img src="img/drag.png" alt="" /></span>
+        </div>
+
+        <!--  body of timer  -->
+        <div class="timer-body">
+            <div class="time">
+                <span class="hours">02</span>
+                <span class="separator">:</span>
+                <span class="mitutes">25</span>
+                <span class="separator">:</span>
+                <span class="seconds">00</span>
+            </div>
+
+            <!--  range slider  -->
+            <div class="range">
+                <input type="range" value="10" min="0" max="100"/>
+                <span class="start">0</span>
+                <span class="end">3:00</span>
+            </div>
+        </div>
+
+        <!-- footer of slider -->
+        <div class="timer-footer">
+            <a href="" id="reset" title=""><img src="img/reset.png" alt="" /></a>
+            <a href="" id="pause" title=""><img src="img/pause.png" alt="" /></a>
+            <a href="" id="play" title=""><img src="img/play.png" alt="" /></a>
+            <a href="" id="alarm" title=""><img src="img/alarm.png" alt="" /></a>
+        </div>
+    </div>
+
+</body>
+</html>
