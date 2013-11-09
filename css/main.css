@@ -25,6 +25,11 @@ body {
     right: 0;
     bottom: 0;
     margin: auto;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* timer header */
@@ -49,8 +54,13 @@ body {
     width: 47px;
     height: 100%;
     text-align: center;
-    cursor: default;
+    cursor: pointer;
+    display: block;
+    outline: none;
     border-left: 1px solid #66acdd;
+}
+.timer-header span.drag {
+    cursor: move;
 }
 
 /* timer body */
