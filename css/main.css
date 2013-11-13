@@ -40,6 +40,7 @@ body {
     height: 35px;
     line-height: 38px;
     margin-bottom: 1px;
+    cursor: move;
 }
 
 .timer-header > div {
@@ -58,9 +59,6 @@ body {
     display: block;
     outline: none;
     border-left: 1px solid #66acdd;
-}
-.timer-header span.drag {
-    cursor: move;
 }
 
 /* timer body */

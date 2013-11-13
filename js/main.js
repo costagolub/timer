@@ -76,7 +76,7 @@
 
     function change() {
         if(arguments.length) {
-            value = (input.value) * 60;
+            value =  (input.value) * 60;
         }
         input.value = Math.floor(value/60);
 
@@ -93,7 +93,6 @@
             }
         }
 
-        // addEventListeners
         document.querySelector('.hours').innerHTML = pad(hours);
         document.querySelector('.mitutes').innerHTML = pad(minutes);
         document.querySelector('.seconds').innerHTML = pad(seconds);
@@ -109,29 +108,55 @@
 
         var setTimer = null;
 
+        // play
         objHandlers.addHandlers(playEl, 'click', function(event){
                 event = objHandlers.addEvent(event);
                 objHandlers.preventDefault(event);
                 var that = this;
 
                 setTimer = function() {
-                    if (value != 0) {
+                    if (value != 0 && setTimer !== null) {
                         that.style.background = "#fff";
+                        pauseEl.style.background = '';
+                        resetEl.style.background = '';
                         value--;
                         change();
-                        setTimeout(setTimer, 10);
+                        setTimeout(setTimer, 100);
                     } else {
                         that.style.background = "";
+                        var clickSound = new Audio('music/play2.mp3');
+                        clickSound.play();
                     }
                 };
-                setTimeout(setTimer, 10);
+                setTimeout(setTimer, 100);
         });
 
+        // pause
         objHandlers.addHandlers(pauseEl, 'click', function(event){
-                event = objHandlers.addEvent(event);
-                objHandlers.preventDefault(event);
-                this.style.background = "#fff";
+            event = objHandlers.addEvent(event);
+            objHandlers.preventDefault(event);
+            if (value != 0) {
                 setTimer = null;
+                this.style.background = '#fff';
+                playEl.style.background = '';
+                resetEl.style.background = '';
+            }
+        });
+
+        // reset
+        objHandlers.addHandlers(resetEl, 'click', function(event){
+            event = objHandlers.addEvent(event);
+            objHandlers.preventDefault(event);
+            if (value != 0) {
+                this.style.background = "#fff";
+                playEl.style.background = '';
+                pauseEl.style.background = '';
+
+                input.value = value = 0;
+                document.querySelector('.hours').innerHTML = '00';
+                document.querySelector('.mitutes').innerHTML = '00';
+                document.querySelector('.seconds').innerHTML = '00';
+            }
         });
     };
 
