@@ -8,4 +8,4 @@ This is a prototype of timer.
 - reset
 - on/off alarm
 
-![timer](img/screenshot.jpg)
+![timer](img/screenshot.png)
