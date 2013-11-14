@@ -104,16 +104,22 @@
     var controls = function(){
         var playEl = document.getElementById('play'),
             pauseEl = document.getElementById('pause'),
-            resetEl = document.getElementById('reset');
+            resetEl = document.getElementById('reset'),
+            alarmEl = document.getElementById('alarm');
+
 
         var setTimer = null;
 
         // play
+        var play = false,
+            alarm = false;
         objHandlers.addHandlers(playEl, 'click', function(event){
-                event = objHandlers.addEvent(event);
-                objHandlers.preventDefault(event);
-                var that = this;
+            event = objHandlers.addEvent(event);
+            objHandlers.preventDefault(event);
+            var that = this;
 
+            if(play == false) {
+                play = true;
                 setTimer = function() {
                     if (value != 0 && setTimer !== null) {
                         that.style.background = "#fff";
@@ -121,14 +127,17 @@
                         resetEl.style.background = '';
                         value--;
                         change();
-                        setTimeout(setTimer, 100);
+                        setTimeout(setTimer, 1000);
+                    } else if (value === 0 && alarm && setTimer !== null) {
+                        var clickSound = new Audio('music/play3.mp3');
+                        clickSound.play();
                     } else {
                         that.style.background = "";
-                        var clickSound = new Audio('music/play2.mp3');
-                        clickSound.play();
+                        play = false;
                     }
                 };
-                setTimeout(setTimer, 100);
+                setTimeout(setTimer, 1000);
+            }
         });
 
         // pause
@@ -158,6 +167,20 @@
                 document.querySelector('.seconds').innerHTML = '00';
             }
         });
+
+        // alarm
+        objHandlers.addHandlers(alarmEl, 'click', function(event){
+            event = objHandlers.addEvent(event);
+            objHandlers.preventDefault(event);
+            if (!alarm) {
+                alarm = true;
+                alarmEl.style.background = '#FFEAA9';
+            } else {
+                alarm = false;
+                alarmEl.style.background = '';
+            }
+        });
+
     };
 
     // main objTimer

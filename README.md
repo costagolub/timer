@@ -1,3 +1,11 @@
-<h1>Timer with alarm clock</h1>
-This is a prototype timer with alarm. 
-Preferred browser to test is Chrome or any browser that based on WebKit engine.
+# Timer 
+This is a prototype of timer. 
+> Browsers to test it is: Chrome or any other browsers that based on WebKit engine.
+
+## Timer functionality:
+- play
+- pause
+- reset
+- on/off alarm
+
+![timer](img/screenshot.jpg)
