@@ -129,7 +129,7 @@
                         change();
                         setTimeout(setTimer, 1000);
                     } else if (value === 0 && alarm && setTimer !== null) {
-                        var clickSound = new Audio('music/play3.mp3');
+                        var clickSound = new Audio('music/alarm.mp3');
                         clickSound.play();
                     } else {
                         that.style.background = "";
